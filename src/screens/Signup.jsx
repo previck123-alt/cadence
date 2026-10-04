@@ -292,7 +292,7 @@ const Signup = () => {
                             </div>
 
                             <h1>
-                                cadence Online Banking
+                                xpress Online Banking
                             </h1>
 
                             <p>

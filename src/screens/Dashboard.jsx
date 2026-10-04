@@ -308,13 +308,13 @@ const Dashboard = () => {
           </section>
         )}
 
-        {/* cadence Offers */}
+        {/* xpress Offers */}
 
-                <section className={styles.cadenceOffers}>
+                <section className={styles.xpressOffers}>
 
           <div className={styles.offerHeader}>
             <div>
-              <h3>cadence offers</h3>
+              <h3>xpress offers</h3>
               <p>Add deals, shop and get money back.</p>
             </div>
 
