@@ -1,0 +1,1095 @@
+/* ============================================
+            TRANSFER CARD
+============================================ */
+
+.transferCard {
+
+    width: 96%;
+
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-bottom: 10%;
+
+    background: #fff;
+
+    border-radius: 26px;
+
+    border: 1px solid #edf1f7;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .04);
+
+    overflow: hidden;
+    margin-top: 150px;
+
+}
+
+/* ---------------------------- */
+
+.transferHeader {
+
+    padding: 24px 28px;
+
+}
+
+.transferTitle {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.transferIcon {
+
+    font-size: 22px;
+
+    color: #005eb8;
+
+}
+
+.transferTitle h2 {
+
+    margin: 0;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #13294b;
+
+}
+
+.divider {
+
+    height: 1px;
+
+    background: #edf1f7;
+
+}
+
+/* ---------------------------- */
+
+.transferBody {
+
+    padding: 28px;
+
+}
+
+/* ---------------------------- */
+
+.formGroup {
+
+    margin-bottom: 24px;
+
+}
+
+.formGroup label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+
+    color: #7d8899;
+
+}
+
+/* ---------------------------- */
+
+.selectBox {
+
+    height: 50px;
+
+    background: #fff;
+
+    border: 1px solid #dfe5ee;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 20px;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.selectBox:hover {
+
+    border-color: #005eb8;
+
+}
+
+.selectBox span {
+
+    font-size: 15px;
+
+    color: #13294b;
+
+}
+
+.selectBox svg {
+
+    font-size: 18px;
+
+    color: #8b97aa;
+
+}
+
+
+
+
+.withdrawalCard {
+  width: 100%;
+
+  max-width: 550px;
+
+  background: #fff;
+
+  border-radius: 24px;
+
+  padding: clamp(20px, 4vw, 32px);
+
+  margin: 20px auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 15px 40px rgba(79, 70, 229, 0.08);
+}
+
+
+@media (max-width: 768px) {
+  .withdrawalCard {
+    max-width: 100%;
+    margin: 15px 0;
+    border-radius: 20px;
+  }
+}
+.withdrawIcon {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #1170CF,
+    #6366f1
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 28px;
+
+  margin-bottom: 20px;
+}
+
+.withdrawTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.progressWrapper {
+  width: 100%;
+  height: 10px;
+
+  background: #ececf7;
+
+  border-radius: 50px;
+
+  overflow: hidden;
+
+  margin-bottom: 24px;
+}
+
+.progressFill {
+  height: 100%;
+
+  background: linear-gradient(
+    135deg,
+    #1170CF,
+    #6366f1
+  );
+
+  border-radius: 50px;
+}
+
+.withdrawText {
+  text-align: center;
+
+  color: #6b7280;
+
+  margin-bottom: 25px;
+
+  font-size: 15px;
+}
+
+.inputGroup {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+
+  color: #1170CF;
+}
+
+.withdrawInput {
+  width: 90%;
+  height: 45px;
+
+  border-radius: 10px;
+
+  border: 1px solid #e5e7eb;
+
+  padding: 0 16px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: .3s;
+}
+
+.withdrawInput:focus {
+  border-color: #1170CF;
+
+  box-shadow:
+    0 0 0 4px rgba(79,70,229,.12);
+}
+
+.proceedButton {
+  width: 100%;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #1170CF,
+    #6366f1
+  );
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-bottom: 14px;
+}
+
+.getCodeButton {
+  border: none;
+  background: transparent;
+
+  color: #1170CF;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.getCodeButton:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,.55);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  padding: 20px;
+}
+
+.modalCard {
+  width: 100%;
+  max-width: 550px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  position: relative;
+
+  animation: modalPop .25s ease;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+  border: none;
+  background: transparent;
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+/* ---------------------------- */
+
+.formGroup input,
+
+.formGroup textarea,select {
+
+    width: 100%;
+
+    border: 1px solid #dfe5ee;
+
+    border-radius: 14px;
+
+    background-color: #f1f1f1;
+
+    padding: 10px 15px;
+
+    font-size: 15px;
+
+    color: #13294b;
+
+    outline: none;
+
+    transition: .25s;
+
+    font-family: inherit;
+
+    resize: none;
+
+    box-sizing: border-box;
+
+}
+
+.formGroup input {
+
+    height: 45px;
+    background-color: #f1f1f1;
+
+}
+
+.formGroup textarea {
+
+    min-height: 95px;
+    background-color: #f1f1f1;
+
+}
+
+.formGroup input:focus,
+
+.formGroup textarea:focus {
+
+    border-color: #005eb8;
+
+    box-shadow: 0 0 0 4px rgba(0, 94, 184, .08);
+
+}
+
+.formGroup input::placeholder,
+
+.formGroup textarea::placeholder {
+
+    color: #9aa6b7;
+
+}
+
+/* ---------------------------- */
+
+.transferBtn {
+
+    width: 100%;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: #6fa5df;
+
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.transferBtn:hover {
+
+    background: #005eb8;
+
+}
+
+.transferBtn svg {
+
+    font-size: 20px;
+
+}
+
+/* ============================================
+                LARGE TABLETS
+============================================ */
+
+@media(max-width:992px) {
+
+    .transferBody {
+
+        padding: 22px;
+
+    }
+
+    .transferHeader {
+
+        padding: 22px;
+
+    }
+
+}
+
+/* ============================================
+                    TABLET
+============================================ */
+
+@media(max-width:768px) {
+
+    .transferCard {
+
+        border-radius: 20px;
+
+    }
+
+    .transferHeader {
+
+        padding: 18px;
+
+    }
+
+    .transferBody {
+
+        padding: 18px;
+
+    }
+
+    .transferTitle h2 {
+
+        font-size: 18px;
+
+    }
+
+    .transferIcon {
+
+        font-size: 20px;
+
+    }
+
+    .formGroup {
+
+        margin-bottom: 18px;
+
+    }
+
+    .formGroup label {
+
+        font-size: 12px;
+
+    }
+
+    .selectBox {
+
+        height: 52px;
+
+        padding: 0 16px;
+
+    }
+
+    .selectBox span {
+
+        font-size: 14px;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+    }
+
+    .formGroup input {
+
+        height: 45px;
+
+        font-size: 14px;
+
+        padding: 16px;
+
+    }
+
+   
+
+
+    .formGroup textarea {
+
+        font-size: 14px;
+
+        padding: 16px;
+
+        min-height: 85px;
+
+    }
+
+    .transferBtn {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* ============================================
+                  MOBILE
+============================================ */
+
+@media(max-width:480px) {
+
+    .transferCard {
+
+        border-radius: 18px;
+
+
+    }
+
+    .transferHeader {
+
+        padding: 16px;
+
+    }
+
+    .transferBody {
+
+        padding: 16px;
+
+    }
+
+    .transferTitle {
+
+        gap: 10px;
+
+    }
+
+    .transferTitle h2 {
+
+        font-size: 17px;
+
+    }
+
+    .transferIcon {
+
+        font-size: 18px;
+
+    }
+
+    .formGroup {
+
+        margin-bottom: 16px;
+
+    }
+
+    .formGroup label {
+
+        font-size: 11px;
+
+    }
+
+    .selectBox {
+
+        height: 48px;
+
+        padding: 0 14px;
+
+        border-radius: 12px;
+
+    }
+
+    .selectBox span {
+
+        font-size: 13px;
+
+    }
+
+    .formGroup input {
+
+        height: 45px;
+
+        font-size: 13px;
+
+        padding: 14px;
+
+    }
+
+    .formGroup textarea {
+
+        min-height: 78px;
+
+        font-size: 13px;
+
+        padding: 14px;
+
+    }
+
+    .transferBtn {
+
+
+        font-size: 15px;
+
+        border-radius: 14px;
+
+    }
+
+}
+
+/* ============================================
+                SMALL PHONES
+============================================ */
+
+@media(max-width:360px) {
+
+    .transferBody {
+
+        padding: 14px;
+
+    }
+
+    .transferHeader {
+
+        padding: 14px;
+
+    }
+
+    .transferTitle h2 {
+
+        font-size: 16px;
+
+    }
+
+    .selectBox span {
+
+        font-size: 12px;
+
+    }
+
+    .formGroup input,
+
+    .formGroup textarea {
+
+        font-size: 12px;
+
+    }
+
+    .transferBtn {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+
+/* ==========================================
+        PAYMENT SERVICES
+========================================== */
+
+.servicesCard {
+    margin-bottom: 70px;
+    width: 100%;
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    border: 1px solid #edf1f7;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .04);
+
+}
+
+/* ------------------------- */
+
+.serviceItem {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 24px;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    border-bottom: 1px solid #edf1f7;
+
+}
+
+.serviceItem:last-child {
+
+    border-bottom: none;
+
+}
+
+.serviceItem:hover {
+
+    background: #fafcff;
+
+}
+
+/* ------------------------- */
+
+.serviceLeft {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+/* ------------------------- */
+
+.serviceIcon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+}
+
+/* ------------------------- */
+
+.zelle {
+
+    background: #6F4BAE;
+
+    color: #fff;
+
+    font-size: 14px;
+
+}
+
+.wire {
+
+    background: #eef6ff;
+
+    color: #0A6EDC;
+
+}
+
+.bill {
+
+    background: #e9fbef;
+
+    color: #1BA94C;
+
+}
+
+/* ------------------------- */
+
+.serviceLeft h3 {
+
+    margin: 0;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #14294d;
+
+}
+
+.serviceLeft p {
+
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    color: #7d8899;
+
+}
+
+/* ------------------------- */
+
+.arrow {
+
+    font-size: 20px;
+
+    color: #a2aaba;
+
+    flex-shrink: 0;
+
+}
+
+/* ==========================================
+            TABLET
+========================================== */
+
+@media(max-width:768px) {
+
+    .serviceItem {
+
+        padding: 18px;
+
+    }
+
+    .serviceIcon {
+
+        width: 44px;
+
+        height: 44px;
+
+        border-radius: 14px;
+
+        font-size: 20px;
+
+    }
+
+    .zelle {
+
+        font-size: 13px;
+
+    }
+
+    .serviceLeft {
+
+        gap: 14px;
+
+    }
+
+    .serviceLeft h3 {
+
+        font-size: 14px;
+
+    }
+
+    .serviceLeft p {
+
+        font-size: 12px;
+
+    }
+
+    .arrow {
+
+        font-size: 18px;
+
+    }
+
+}
+
+/* ==========================================
+            MOBILE
+========================================== */
+
+@media(max-width:480px) {
+
+    .servicesCard {
+
+        border-radius: 18px;
+
+    }
+
+    .serviceItem {
+
+        padding: 15px;
+
+    }
+
+    .serviceIcon {
+
+        width: 40px;
+
+        height: 40px;
+
+        border-radius: 12px;
+
+        font-size: 18px;
+
+    }
+
+    .zelle {
+
+        font-size: 11px;
+
+    }
+
+    .serviceLeft {
+
+        gap: 12px;
+
+    }
+
+    .serviceLeft h3 {
+
+        font-size: 13px;
+
+    }
+
+    .serviceLeft p {
+
+        font-size: 11px;
+
+        line-height: 1.4;
+
+    }
+
+    .arrow {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* ==========================================
+        EXTRA SMALL PHONES
+========================================== */
+
+@media(max-width:360px) {
+
+    .serviceItem {
+
+        padding: 13px;
+
+    }
+
+    .serviceIcon {
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 16px;
+
+    }
+
+    .zelle {
+
+        font-size: 10px;
+
+    }
+
+    .serviceLeft h3 {
+
+        font-size: 12px;
+
+    }
+
+    .serviceLeft p {
+
+        font-size: 10px;
+
+    }
+
+    .arrow {
+
+        font-size: 15px;
+
+    }
+
+}

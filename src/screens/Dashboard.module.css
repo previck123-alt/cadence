@@ -1,0 +1,896 @@
+/* ==========================================================
+   GLOBAL
+========================================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background: #f4f6fa;
+}
+
+.container {
+
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f4f6fa;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        sans-serif;
+
+    color: #1d2b3f;
+
+    overflow-x: hidden;
+
+}
+
+/* ==========================================================
+   SECTION FOR FLEXIBLE MENU
+========================================================== */
+
+
+
+.menuSection {
+    width: 100%;
+    display: flex;
+    padding: 10px 30px;
+    justify-content: center;
+
+}
+
+.quickActions {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 115px;
+    width: 100%;
+    background-color: #1571CF;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    padding: 18px 18px 22px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.quickActions::-webkit-scrollbar {
+    display: none;
+}
+
+.actionCard {
+
+    min-width: 102px;
+    background: #3C89D7;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+    padding: 8px;
+    border-radius: 10px;
+
+    height: 90px
+}
+
+.actionCard:hover {
+
+    transform: translateY(-3px);
+
+}
+
+.iconCircle {
+
+    width: 66px;
+    border-radius: 18px;
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow:
+        0 2px 8px rgba(17, 112, 207, .10),
+        0 10px 24px rgba(17, 112, 207, .08);
+
+    transition: .25s ease;
+
+    margin-bottom: 10px
+}
+
+.actionCard:hover .iconCircle {
+
+    box-shadow:
+        0 8px 20px rgba(17, 112, 207, .18);
+
+}
+
+.iconCircle svg {
+
+    font-size: 30px;
+
+    color: #1170CF;
+}
+
+.actionCard span {
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #fff1f1;
+
+    line-height: 1.35;
+
+    white-space: nowrap;
+}
+
+
+
+
+.actionCard {
+
+    position: relative;
+
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.closeButton {
+
+    position: absolute;
+
+    top: 5px;
+
+    right: 5px;
+    width: 22px;
+    background: transparent;
+    height: 22px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: .25s;
+}
+
+.closeButton svg {
+
+    font-size: 13px;
+
+    color: #ffffff;
+}
+
+.closeButton:hover {
+
+    background: #1170CF;
+
+    transform: scale(1.08);
+}
+
+.closeButton:hover svg {
+
+    color: #fff;
+}
+
+
+
+/* ==========================================================
+   ACCOUNT SECTION
+========================================================== */
+
+.accountsSection {
+
+    width: 100%;
+
+    padding: 25px 35px;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+
+    gap: 22px;
+
+}
+
+
+
+/* ==========================================================
+   QUICK ACTIONS
+========================================================== */
+
+.actions {
+
+    margin: 0 35px 35px;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 20px;
+
+}
+
+.actions button {
+
+    border: none;
+
+    outline: none;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 26px 20px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    transition: .3s;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, .05);
+
+}
+
+.actions button:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, .10);
+
+}
+
+.actions button svg {
+
+    font-size: 30px;
+
+    color: #1565d8;
+
+    transition: .3s;
+
+}
+
+.actions button span {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #2b3a4f;
+
+    text-align: center;
+
+    line-height: 1.5;
+
+}
+
+.activeTab {
+
+    background: #1565d8 !important;
+
+}
+
+.activeTab svg {
+
+    color: #ffffff !important;
+
+}
+
+.activeTab span {
+
+    color: #ffffff !important;
+
+}
+
+
+.dashboardGrid {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 30px;
+
+    margin: 0 35px 40px;
+
+}
+
+.leftColumn {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+.rightColumn {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+
+/* ==========================================================
+   WHITE CARD
+========================================================== */
+
+.card {
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 6px 24px rgba(0, 0, 0, .05);
+
+    transition: .3s;
+
+}
+
+.card:hover {
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, .08);
+
+}
+
+
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.sectionTitle {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #203450;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    background: #edf1f7;
+
+    margin: 20px 0;
+
+}
+
+.card {
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 6px 24px rgba(0, 0, 0, .05);
+
+    transition: .3s;
+
+}
+
+.card:hover {
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, .08);
+
+}
+
+
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.sectionTitle {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #203450;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    background: #edf1f7;
+
+    margin: 20px 0;
+
+}
+
+
+
+/* accounts card  */
+
+.accountsCard {
+    width: 96%;
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 2%;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #ececec;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .06);
+}
+
+.cardHeader {
+    padding: .8rem .8rem;
+    border-bottom: 1px solid #eceff3;
+}
+
+.cardHeader h3 {
+    margin: 0;
+    font: size 0.8em;
+    font-weight: 700;
+    color: #15253d;
+}
+
+.accountRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: .8rem .8rem;
+
+    border-bottom: 1px solid #eceff3;
+}
+
+.accountLeft {
+    flex: 1;
+    min-width: 0;
+}
+
+.accountTitle {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    color: #005EB8;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.chevron {
+    font-size: 1rem;
+}
+
+.accountNumber {
+    margin-top: .45rem;
+    color: #7a8593;
+    font-size: 1.2rem;
+}
+
+.accountRight {
+    flex-shrink: 0;
+    padding-left: 1rem;
+    border-left: 2px solid #e6eef8;
+    font-weight: 700;
+    color: #15253d;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+.openAccount {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    padding: 1.15rem 1.5rem;
+
+    color: #005EB8;
+    font-weight: 600;
+    font-size: clamp(.95rem, 1.6vw, 1.2rem);
+
+    cursor: pointer;
+    transition: .25s;
+}
+
+.openAccount:hover {
+    background: #fafafa;
+}
+
+.plus {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+
+/*  cadence offer section */
+
+.cadenceOffers {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 3%;
+}
+
+.offerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.offerHeader h3 {
+    margin: 0;
+    color: #15253d;
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.offerHeader p {
+    margin: .35rem 0 0;
+    color: #697585;
+    font-size: clamp(.85rem, 1vw, .95rem);
+}
+
+.allOffers {
+    color: #005EB8;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: .95rem;
+}
+
+.offerCards {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: .3rem;
+
+    scrollbar-width: none;
+}
+
+.offerCards::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    width: 95px;
+    height: 85px;
+    flex-shrink: 0;
+
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #fff;
+
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .08);
+
+    font-size: .9rem;
+    text-align: center;
+}
+
+.card strong {
+    line-height: 1.1;
+}
+
+.card small {
+    margin-top: 4px;
+    font-size: .60rem;
+}
+
+/* Cards */
+
+.cardLogo {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 2px solid #0b67c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #0b67c2;
+    margin-bottom: 6px;
+}
+
+.card span {
+    color: #0b67c2;
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+.office {
+    background: #d82831;
+    color: white;
+}
+
+.office small {
+    color: white;
+}
+
+.nfl {
+    background: #0b376b;
+    color: white;
+}
+
+.nfl small {
+    color: white;
+}
+
+.dell {
+    background: white;
+    border: 1px solid #ddd;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.amazon {
+    background: #ff6900;
+    color: white;
+    font-size: 1rem;
+}
+
+.spotify {
+    background: #1DB954;
+    color: white;
+}
+
+/* Responsive */
+
+@media(max-width:768px) {
+
+    .offerCards {
+        gap: 10px;
+    }
+
+    .card {
+        width: 82px;
+        height: 76px;
+    }
+
+    .cardLogo {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+
+}
+
+/* Tablet */
+
+@media (max-width:768px) {
+
+    .accountRow {
+        padding: 1rem;
+    }
+
+    .cardHeader {
+        padding: 1rem;
+    }
+
+    .openAccount {
+        padding: 1rem;
+    }
+
+}
+
+/* Phones */
+
+@media (max-width:480px) {
+
+    .accountRow {
+        align-items: flex-start;
+        gap: .75rem;
+    }
+
+    .accountRight {
+        padding-left: .75rem;
+        font-size: 1rem;
+    }
+
+    .accountTitle {
+        font-size: 1rem;
+    }
+
+    .accountNumber {
+        font-size: .8rem;
+    }
+
+    .cardHeader h3 {
+        font-size: 1.25rem;
+    }
+
+    .openAccount {
+        font-size: .95rem;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  invest section*/
+
+
+.quickLinksCard {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 3%;
+    margin-bottom:100px;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #ececec;
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, .04),
+        0 8px 30px rgba(0, 0, 0, .05);
+}
+
+/* Each Row */
+
+.quickRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 1rem;
+
+    border-bottom: 1px solid #eceff3;
+
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.quickRow:last-child {
+    border-bottom: none;
+}
+
+.quickRow:hover {
+    background: #fafafa;
+}
+
+/* Left Side */
+
+.left {
+    flex: 1;
+    min-width: 0;
+}
+
+.left h4,
+.quickRow h4 {
+    margin: 0;
+    font-size: clamp(1rem, 1.5vw, 1.35rem);
+    font-weight: 700;
+    color: #14263F;
+}
+
+.left p {
+    margin-top: .45rem;
+    color: #6f7b8a;
+    font-size: clamp(.82rem, 1vw, .95rem);
+    line-height: 1.5;
+}
+
+/* Arrow */
+
+.arrow {
+    flex-shrink: 0;
+
+    margin-left: 1rem;
+
+    font-size: 1.8rem;
+    font-weight: 300;
+
+    color: #9ca3af;
+}
+
+/* Tablet */
+
+@media(max-width:768px) {
+
+    .quickLinksCard {
+        border-radius: 18px;
+    }
+
+    .quickRow {
+        padding: 1.2rem 1rem;
+    }
+
+}
+
+
+
+

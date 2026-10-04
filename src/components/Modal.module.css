@@ -1,0 +1,173 @@
+/* ===================== */
+/* Modal Base Styles */
+/* ===================== */
+
+.modal_screen {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  background: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Center container */
+.modal_center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal card */
+.modal_input_card {
+  width: 100%;
+  max-width: 520px;
+
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+
+  padding: 24px;
+  text-align: center;
+  box-sizing: border-box;
+
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Content */
+.modal_heading_con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.modal_heading {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgb(70, 70, 70);
+}
+
+/* Button */
+.modal_button {
+  width: 100%;
+  max-width: 260px;
+
+  padding: 12px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: #1571CF;
+  color: #fff;
+
+  font-size: 15px;
+  font-family: "ABeeZee", sans-serif;
+
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.modal_button:hover {
+  opacity: .95;
+}
+
+.modal_button:active {
+  transform: scale(.97);
+}
+
+/* ===================== */
+/* Large tablets */
+/* ===================== */
+
+@media (max-width: 900px) {
+  .modal_input_card {
+    max-width: 460px;
+  }
+}
+
+/* ===================== */
+/* Tablets */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .modal_screen {
+    padding: 18px;
+  }
+
+  .modal_input_card {
+    max-width: 420px;
+    padding: 22px;
+  }
+}
+
+/* ===================== */
+/* Mobile */
+/* ===================== */
+
+@media (max-width: 550px) {
+  .modal_screen {
+    padding: 16px;
+  }
+
+  .modal_input_card {
+    max-width: 100%;
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .modal_heading {
+    font-size: 16px;
+  }
+
+  .modal_button {
+    max-width: 100%;
+    font-size: 14px;
+    padding: 11px;
+  }
+}
+
+/* ===================== */
+/* Small phones */
+/* ===================== */
+
+@media (max-width: 360px) {
+  .modal_screen {
+    padding: 12px;
+  }
+
+  .modal_input_card {
+    padding: 16px;
+  }
+
+  .modal_heading {
+    font-size: 15px;
+  }
+
+  .modal_button {
+    font-size: 13px;
+  }
+}
+
+/* ===================== */
+/* Animation */
+/* ===================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

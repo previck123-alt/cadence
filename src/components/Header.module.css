@@ -1,0 +1,609 @@
+/* ==========================================================
+   GLOBAL
+========================================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background: #f4f6fa;
+}
+
+.container {
+
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f4f6fa;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        sans-serif;
+
+    color: #1d2b3f;
+
+    overflow-x: hidden;
+
+}
+
+/* ==========================================================
+   SECTION FOR FLEXIBLE MENU
+========================================================== */
+
+
+
+.menuSection {
+    width: 100%;
+    display: flex;
+    padding: 10px 30px;
+    justify-content: center;
+
+}
+
+.quickActions {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 115px;
+    width: 100%;
+    background-color: #1571CF;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    padding: 18px 18px 22px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.quickActions::-webkit-scrollbar {
+    display: none;
+}
+
+.actionCard {
+
+    min-width: 102px;
+    background: #3C89D7;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+    padding: 8px;
+    border-radius: 10px;
+
+    height: 90px
+}
+
+.actionCard:hover {
+
+    transform: translateY(-3px);
+
+}
+
+.iconCircle {
+
+    width: 66px;
+    border-radius: 18px;
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow:
+        0 2px 8px rgba(17, 112, 207, .10),
+        0 10px 24px rgba(17, 112, 207, .08);
+
+    transition: .25s ease;
+
+    margin-bottom: 10px
+}
+
+.actionCard:hover .iconCircle {
+
+    box-shadow:
+        0 8px 20px rgba(17, 112, 207, .18);
+
+}
+
+.iconCircle svg {
+
+    font-size: 30px;
+
+    color: #1170CF;
+}
+
+.actionCard span {
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #fff1f1;
+
+    line-height: 1.35;
+
+    white-space: nowrap;
+}
+
+
+
+
+.actionCard {
+
+    position: relative;
+
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.closeButton {
+
+    position: absolute;
+
+    top: 5px;
+
+    right: 5px;
+    width: 22px;
+    background: transparent;
+    height: 22px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: .25s;
+}
+
+.closeButton svg {
+
+    font-size: 13px;
+
+    color: #ffffff;
+}
+
+.closeButton:hover {
+
+    background: #1170CF;
+
+    transform: scale(1.08);
+}
+
+.closeButton:hover svg {
+
+    color: #fff;
+}
+
+
+
+
+
+.top {
+    background-color: #1571CF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    position:fixed;
+    width:100%;
+    top:0px;
+    z-index:1000;
+   
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 2px 35px;
+    padding-top: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+
+}
+
+/* ==========================================================
+   SEARCH BAR
+========================================================== */
+
+.searchBar {
+
+    width: 100%;
+
+    height: 40px;
+
+    background: #3C89D7;
+
+    border-radius: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 18px;
+
+    border: 1px solid transparent;
+
+    transition: .3s ease;
+
+}
+
+.searchBar:focus-within {
+
+    border-color: #1565d8;
+
+}
+
+.searchBar svg {
+
+    flex-shrink: 0;
+
+    font-size: 20px;
+
+    color: #fcf1f1;
+}
+
+.searchBar input {
+
+    flex: 1;
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #fcf1f1;
+    font-size: 15px;
+
+    font-family: inherit;
+
+}
+
+.searchBar input::placeholder {
+
+    color: #fcf1f1;
+
+}
+
+/* ==========================================================
+   RIGHT HEADER
+========================================================== */
+
+.headerRight {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-shrink: 0;
+
+
+}
+
+/* ==========================================================
+   ICON BUTTON
+========================================================== */
+
+.iconButton {
+
+    width: 46px;
+
+    height: 46px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #3C89D7;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .25s;
+    color: #fff
+}
+
+.iconButton svg {
+
+    font-size: 20px;
+
+    color: #42546f;
+
+}
+
+.iconButton:hover {
+
+    background: #1565d8;
+
+}
+
+.iconButton:hover svg {
+
+    color: #ffffff;
+
+}
+
+/* ==========================================================
+   AVATAR
+========================================================== */
+
+.avatar {
+
+    width: 46px;
+
+    height: 46px;
+
+    border-radius: 50%;
+
+    background: #3C89D7;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+
+}
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+    padding: 10px 35px;
+
+
+}
+
+.heroLeft {
+
+    display: flex;
+
+    align-items: flex-start;
+
+
+}
+
+.logo {
+
+    width: 160px;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+}
+
+.heroLeft h2 {
+
+    font-size: clamp(1.6rem, 3vw, 2rem);
+
+    font-weight: 700;
+
+    color: #163254;
+
+    line-height: 1.3;
+
+}
+
+.heroLeft p {
+
+    margin-top: 8px;
+
+    font-size: 15px;
+
+    color: #8090a8;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================================
+   FLOATING BUTTON
+========================================================== */
+
+.floatingButton {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #3C89D7;
+
+    color: #ffffff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    transition: .3s ease;
+
+    box-shadow:
+        0 12px 30px rgba(21, 101, 216, .35);
+
+}
+
+.floatingButton:hover {
+
+    transform: translateY(-4px) scale(1.05);
+
+}
+
+.floatingButton svg {
+
+    font-size: 28px;
+
+}
+
+.heroLeft .greeting {
+    font-size: 1.1rem;
+    color: #fff
+}
+
+/* Mobile */
+
+@media(max-width:480px) {
+
+    .quickRow {
+        padding: 1rem;
+    }
+
+    .left h4,
+    .quickRow h4 {
+        font-size: 1rem;
+    }
+
+    .left p {
+        font-size: .82rem;
+        margin-top: .35rem;
+    }
+
+    .arrow {
+        font-size: 1.4rem;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+
+
+    .header {
+        padding: 10px 10px;
+    }
+
+    .heroLeft .greeting {
+        font-size: 1rem;
+    }
+
+    .hero {
+        padding: 10px 10px;
+
+    }
+
+
+
+    .quickActions {
+
+        justify-content: flex-start;
+
+        gap: 18px;
+
+        padding: 16px;
+
+    }
+
+    .actionCard {
+
+        min-width: 80px;
+
+    }
+
+    .iconCircle {
+
+        width: 60px;
+
+        height: 60px;
+
+    }
+
+    .iconCircle svg {
+
+        font-size: 27px;
+
+    }
+
+    .actionCard span {
+
+        font-size: 12px;
+
+    }
+
+
+}
