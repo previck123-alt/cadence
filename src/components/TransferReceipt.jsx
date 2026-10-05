@@ -33,7 +33,7 @@ const TransferReceipt = ({ transfer, onClose }) => {
           ×
         </button>
 
-        <div className={styles.brand}>YOUR APP</div>
+        <div className={styles.brand}>XPRESS</div>
         <h1>Payment Sent</h1>
         <h2>Successfully</h2>
         <p className={styles.reference}>Reference #{transfer.id || "PENDING"}</p>
@@ -54,9 +54,7 @@ const TransferReceipt = ({ transfer, onClose }) => {
           <Row label="New Balance" value={`$ ${money(transfer.balance)}`} last />
         </div>
 
-        <div className={styles.notice}>
-          DEMO / INTERNAL APP RECEIPT — NOT A BANK RECORD
-        </div>
+       
 
         <button className={styles.doneButton} onClick={onClose}>
           Done
