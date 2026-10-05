@@ -43,7 +43,7 @@ let retrievedAdminStoredToken = () => {
   }
 }
 
-//http://localhost:8082
+//https://achiever-bank-backend.onrender.com
 
 
 
@@ -52,7 +52,7 @@ export const signup = (data) => {
   let objData = data
   return async (dispatch, getState) => {
     try {
-      const response = await fetch(`http://localhost:8082/signup`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -125,7 +125,7 @@ export const login = (data) => {
     let userData = data
     //do some check on the server if its actually login before proceding to dispatch
     try {
-      const response = await fetch('http://localhost:8082/login', {
+      const response = await fetch('https://achiever-bank-backend.onrender.com/login', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -190,7 +190,7 @@ export const sendRecoverEmail = (data) => {
   return async (dispatch, getState) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
-      const response = await fetch(`http://localhost:8082/recoverpassword`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/recoverpassword`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -244,7 +244,7 @@ export const checkRecoverTokenValidity = (token) => {
   return async (dispatch, getState) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
-      const response = await fetch(`http://localhost:8082/checkrecovertokenvalidity/${token}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/checkrecovertokenvalidity/${token}`, {
         headers: {
           "Content-Type": "application/json",
         }
@@ -285,7 +285,7 @@ export const changePassword = (data) => {
   return async (dispatch, getState) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
-      const response = await fetch(`http://localhost:8082/changepassword/${data.token}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/changepassword/${data.token}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -336,7 +336,7 @@ export const registeration = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/registeration/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/registeration/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -391,7 +391,7 @@ export const profilePhoto = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/pofilephoto/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/pofilephoto/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -450,7 +450,7 @@ export const hasCardFun = () => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/hascard/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/hascard/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -505,7 +505,7 @@ export const createCard = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/createcard/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/createcard/${userToken}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -561,7 +561,7 @@ export const deleteCard = (id) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/deletecard/${userToken}/${id}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/deletecard/${userToken}/${id}`, {
         method: 'DELETE',
         headers: {
           "Content-Type": "application/json",
@@ -613,7 +613,7 @@ export const fetchDeposits = () => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/withdraws/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/withdraws/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -661,7 +661,7 @@ export const createDeposits = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/deposits/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/deposits/${userToken}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -711,7 +711,7 @@ export const withdraws = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/withdraw/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/withdraw/${userToken}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -782,7 +782,7 @@ export const fetchWithdraw = () => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/withdraws/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/withdraws/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -829,7 +829,7 @@ export const fetchAccounts = () => {
       let {
         userToken
       } = getState().userAuth
-      const response = await fetch(`http://localhost:8082/accounts/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/accounts/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -883,7 +883,7 @@ export const transferFunds = (data) => {
 
       dispatch({ type: DATA, payload: { ...data, url: 'sendAccount' } })
 
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8082'
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://achiever-bank-backend.onrender.com'
       const response = await fetch(`${apiUrl}/sendaccount/${userToken}`, {
         method: 'POST',
         headers: {
@@ -942,7 +942,7 @@ export const sendAccountWithinBank = (data) => {
       dispatch({ type: DATA, payload: { ...data, url: 'sendAccountWithinBank' } })
 
 
-      const response = await fetch(`http://localhost:8082/sendAccountWithinBank/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/sendAccountWithinBank/${userToken}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -1049,7 +1049,7 @@ export const fetchTransfersAccount = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/transferstoaccount/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/transferstoaccount/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -1096,7 +1096,7 @@ export const fetchAllAccount = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/allaccounts/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/allaccounts/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -1143,7 +1143,7 @@ export const sendOtpCode = () => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/otpcode/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/otpcode/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -1190,7 +1190,7 @@ export const submitOtpCode = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/otpcode/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/otpcode/${userToken}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -1240,7 +1240,7 @@ export const fetchAllBenefeciaries = () => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/beneficiaries/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/beneficiaries/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -1286,7 +1286,7 @@ export const addBeneficiaries = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/beneficiaries/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/beneficiaries/${userToken}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -1337,7 +1337,7 @@ export const deleteBeneficiaries = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/beneficiaries/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/beneficiaries/${userToken}`, {
         method: 'DELETE',
         headers: {
           "Content-Type": "application/json",
@@ -1385,7 +1385,7 @@ export const fetchAllNotifications = () => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/notifications/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/notifications/${userToken}`, {
         headers: {
           "Content-Type": "application/json",
           "header": `${userToken}`
@@ -1433,7 +1433,7 @@ export const deleteNotification = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/notifications/${userToken}/${data._id}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/notifications/${userToken}/${data._id}`, {
         method: 'DELETE',
         headers: {
           "Content-Type": "application/json",
@@ -1482,7 +1482,7 @@ export const applyLoan = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/loan/${userToken}`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/loan/${userToken}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -1533,7 +1533,7 @@ export const fetchAdmin = () => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/admin`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/admin`, {
         method: 'GET',
         headers: {
           "Content-Type": "application/json",
@@ -1584,7 +1584,7 @@ export const sendContactEmail = (data) => {
         userToken
       } = getState().userAuth
 
-      const response = await fetch(`http://localhost:8082/contact`, {
+      const response = await fetch(`https://achiever-bank-backend.onrender.com/contact`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
