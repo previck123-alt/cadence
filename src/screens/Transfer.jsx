@@ -74,11 +74,8 @@ const Transfer = () => {
       return;
     }
 
-    if (Number(selectedAccount?.Balance || 0) < Number(amount)) {
-      showMessage("Insufficient funds.");
-      return;
-    }
-
+    // The backend remains authoritative for the actual fee and balance check.
+    // Do not reject a valid transfer here using a stale client-side fee.
     setPinError("");
     setPin("");
     setPinModalOpen(true);

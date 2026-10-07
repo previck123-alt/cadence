@@ -26,6 +26,10 @@ const TransferReceipt = ({ transfer, onClose }) => {
       })
     : new Date().toLocaleString();
 
+  const transferFee = Number(transfer.transferFee ?? transfer.fee ?? 0);
+  const transferAmount = Number(transfer.amount ?? 0);
+  const totalDebit = Number(transfer.totalDebit ?? (transferAmount + transferFee));
+
   const currentBalance =
     transfer.currentBalance ??
     transfer.balance ??
@@ -56,7 +60,9 @@ const TransferReceipt = ({ transfer, onClose }) => {
           <Row label="Account Number" value={maskAccount(transfer.accountNumber)} />
           <Row label="Description" value={transfer.reason || "—"} />
           <Row label="Transaction Date" value={date} />
-         
+          <Row label="Transfer Amount" value={`$ ${money(transferAmount)}`} />
+          <Row label="Transaction Fee" value={`$ ${money(transferFee)}`} />
+          <Row label="Total Debited" value={`$ ${money(totalDebit)}`} />
           <Row
             label="Current Account Balance"
             value={`$ ${money(currentBalance)}`}

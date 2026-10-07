@@ -1023,17 +1023,16 @@ const Transactions = () => {
 
 
                                                 <small>
+                                                    Fee: {formatMoney(item.fee || 0)}
+                                                </small>
 
+                                                <small>
+                                                    Total: {formatMoney(item.totalDebit ?? item.amount)}
+                                                </small>
 
-                                                    Bal:{" "}
-
-                                                    {
-                                                        formatMoney(
-                                                            item.Balance
-                                                        )
-                                                    }
-
-
+                                                <small>
+                                                    Bal: {" "}
+                                                    {formatMoney(item.Balance ?? item.balance)}
                                                 </small>
 
 
