@@ -436,6 +436,150 @@ export const profilePhoto = (data) => {
     }
   }
 }
+
+// Fetch the latest profile and accounts for the signed-in user.
+export const fetchCurrentUser = () => {
+  return async (dispatch, getState) => {
+    try {
+      const { userToken } = getState().userAuth;
+
+      if (!userToken) {
+        return {
+          bool: false,
+          message: "User is not authenticated."
+        };
+      }
+
+      const apiUrl =
+        process.env.REACT_APP_API_URL ||
+        "https://achiever-bank-backend.onrender.com";
+
+      const response = await fetch(
+        `${apiUrl}/profile/${userToken}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            header: `${userToken}`
+          }
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return {
+          bool: false,
+          message: data.response || "Unable to load profile."
+        };
+      }
+
+      dispatch({
+        type: MODIFY_USER,
+        payload: data.response
+      });
+
+      if (Array.isArray(data.response?.accounts)) {
+        dispatch({
+          type: FETCH_ACCOUNTS,
+          payload: data.response.accounts
+        });
+      }
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(data.response.user)
+      );
+
+      return {
+        bool: true,
+        message: data.response
+      };
+    } catch (err) {
+      console.error("fetchCurrentUser:", err);
+
+      return {
+        bool: false,
+        message: "Unable to connect to the server."
+      };
+    }
+  };
+};
+
+
+// Update the current user's editable profile fields.
+export const updateCurrentUser = (profileData) => {
+  return async (dispatch, getState) => {
+    try {
+      const { userToken } = getState().userAuth;
+
+      if (!userToken) {
+        return {
+          bool: false,
+          message: "User is not authenticated."
+        };
+      }
+
+      const apiUrl =
+        process.env.REACT_APP_API_URL ||
+        "https://achiever-bank-backend.onrender.com";
+
+      const response = await fetch(
+        `${apiUrl}/profile/${userToken}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            header: `${userToken}`
+          },
+          body: JSON.stringify(profileData)
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return {
+          bool: false,
+          message: data.response || "Unable to update profile."
+        };
+      }
+
+      dispatch({
+        type: MODIFY_USER,
+        payload: data.response
+      });
+
+      if (Array.isArray(data.response?.accounts)) {
+        dispatch({
+          type: FETCH_ACCOUNTS,
+          payload: data.response.accounts
+        });
+      }
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(data.response.user)
+      );
+
+      return {
+        bool: true,
+        message: "Profile updated successfully.",
+        user: data.response.user,
+        accounts: data.response.accounts || []
+      };
+    } catch (err) {
+      console.error("updateCurrentUser:", err);
+
+      return {
+        bool: false,
+        message: "Unable to connect to the server."
+      };
+    }
+  };
+}
+
+
 /*  Dashboard Routes  */
 
 //get user
@@ -914,10 +1058,23 @@ export const transferFunds = (data) => {
       if (response.status === 200) {
         let data = await response.json()
         dispatch({ type: WITHDRAW, payload: data.response.allAccount })
+
         return {
           bool: true,
           message: data.response.transfer,
-          transfer: data.response.transfer,
+          transfer: {
+            ...data.response.transfer,
+            balance:
+              data.response.currentBalance ??
+              data.response.transfer?.balance ??
+              0,
+            currentBalance:
+              data.response.currentBalance ??
+              data.response.transfer?.balance ??
+              0,
+          },
+          allAccount: data.response.allAccount,
+          currentBalance: data.response.currentBalance,
           url: ''
         }
       }

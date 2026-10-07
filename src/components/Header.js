@@ -8,11 +8,13 @@ import {
 } from "react-icons/fi";
 
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Header = () => {
 
+    const navigate = useNavigate();
 
     // ==========================
     // REDUX USER DATA
@@ -139,13 +141,17 @@ const Header = () => {
 
 
 
-                    <div className={styles.avatar}>
-
+                    <button
+                        type="button"
+                        className={styles.avatar}
+                        onClick={() => navigate("/profile")}
+                        aria-label="Open profile"
+                        title="Profile"
+                    >
                         {
                             getInitials()
                         }
-
-                    </div>
+                    </button>
 
 
 

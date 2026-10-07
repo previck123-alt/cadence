@@ -26,6 +26,12 @@ const TransferReceipt = ({ transfer, onClose }) => {
       })
     : new Date().toLocaleString();
 
+  const currentBalance =
+    transfer.currentBalance ??
+    transfer.balance ??
+    transfer.newBalance ??
+    0;
+
   return (
     <div className={styles.overlay}>
       <div className={styles.receipt}>
@@ -51,7 +57,11 @@ const TransferReceipt = ({ transfer, onClose }) => {
           <Row label="Description" value={transfer.reason || "—"} />
           <Row label="Transaction Date" value={date} />
           <Row label="Transaction Fee" value="$ 0.00" />
-          <Row label="New Balance" value={`$ ${money(transfer.balance)}`} last />
+          <Row
+            label="Current Account Balance"
+            value={`$ ${money(currentBalance)}`}
+            last
+          />
         </div>
 
        
