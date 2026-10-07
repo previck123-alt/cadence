@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Transfer.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -19,7 +19,7 @@ import { FaDollarSign, FaArrowDown } from "react-icons/fa";
 
 const Transfer = () => {
   const dispatch = useDispatch();
-  const { accounts = [] } = useSelector((state) => state.userAuth);
+  const { accounts = [], userToken } = useSelector((state) => state.userAuth);
 
   const [selectedAccount, setSelectedAccount] = useState(accounts[0] || null);
   const [bankName, setBankName] = useState("");
@@ -35,12 +35,65 @@ const Transfer = () => {
   const [pinModalOpen, setPinModalOpen] = useState(false);
   const [pinError, setPinError] = useState("");
   const [receipt, setReceipt] = useState(null);
+  const [transferFee, setTransferFee] = useState(5.00);
+  const [feeLoading, setFeeLoading] = useState(true);
 
   const formatMoney = (value) =>
     Number(value || 0).toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
     });
+
+  useEffect(() => {
+    let mounted = true;
+
+    const loadTransferFee = async () => {
+      if (!userToken) {
+        if (mounted) setFeeLoading(false);
+        return;
+      }
+
+      try {
+        const apiUrl =
+          process.env.REACT_APP_API_URL ||
+          "https://achiever-bank-backend.onrender.com";
+
+        const response = await fetch(`${apiUrl}/transfer-fee/${userToken}`, {
+          headers: {
+            "Content-Type": "application/json",
+            header: userToken,
+          },
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.response || "Unable to load transfer fee.");
+        }
+
+        const serverFee = Number(data?.response?.transferFee);
+
+        if (!Number.isFinite(serverFee) || serverFee <= 0) {
+          throw new Error("A valid transfer fee is not configured.");
+        }
+
+        if (mounted) setTransferFee(serverFee);
+      } catch (error) {
+        if (mounted) {
+          setTransferFee(5.00);
+          setPinError(error.message || "Unable to load transfer fee.");
+        }
+      } finally {
+        if (mounted) setFeeLoading(false);
+      }
+    };
+
+    loadTransferFee();
+
+    return () => {
+      mounted = false;
+    };
+  }, [userToken]);
 
   const maskAccount = (number) => {
     if (!number) return "";
@@ -74,8 +127,17 @@ const Transfer = () => {
       return;
     }
 
-    if (Number(selectedAccount?.Balance || 0) < Number(amount)) {
-      showMessage("Insufficient funds.");
+    const totalDebit = Number(amount) + Number(transferFee);
+
+    if (!Number.isFinite(transferFee) || transferFee <= 0) {
+      showMessage("Transfer fee is currently unavailable.");
+      return;
+    }
+
+    if (Number(selectedAccount?.Balance || 0) < totalDebit) {
+      showMessage(
+        `Insufficient funds. You need ${formatMoney(totalDebit)} including the ${formatMoney(transferFee)} transfer fee.`
+      );
       return;
     }
 
@@ -224,9 +286,33 @@ const Transfer = () => {
               />
             </div>
 
+            <div
+              style={{
+                marginTop: 4,
+                marginBottom: 18,
+                padding: "16px 18px",
+                borderRadius: 14,
+                background: "#f7f8fb",
+                border: "1px solid #e8eaf0",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+                <span style={{ color: "#667085", fontSize: 13 }}>Transfer amount</span>
+                <strong>{formatMoney(amount)}</strong>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+                <span style={{ color: "#667085", fontSize: 13 }}>Transaction fee</span>
+                <strong>{feeLoading ? "Loading..." : formatMoney(transferFee)}</strong>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", paddingTop: 10, borderTop: "1px solid #e5e7eb" }}>
+                <span style={{ color: "#101828", fontSize: 13, fontWeight: 700 }}>Total debit</span>
+                <strong>{feeLoading ? "Loading..." : formatMoney(Number(amount || 0) + transferFee)}</strong>
+              </div>
+            </div>
+
             <button
               className={styles.transferBtn}
-              disabled={!selectedAccount || loading}
+              disabled={!selectedAccount || loading || feeLoading}
               onClick={openPinStep}
               style={{ opacity: !selectedAccount || loading ? 0.5 : 1 }}
             >
@@ -282,6 +368,29 @@ const Transfer = () => {
               <p className={styles.withdrawText}>
                 Enter your 4-digit transaction PIN to authorize this transfer.
               </p>
+
+              <div
+                style={{
+                  margin: "16px 0",
+                  padding: "14px 16px",
+                  borderRadius: 12,
+                  background: "#f7f8fb",
+                  border: "1px solid #e8eaf0",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 7 }}>
+                  <span style={{ color: "#667085" }}>Transfer</span>
+                  <strong>{formatMoney(amount)}</strong>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 7 }}>
+                  <span style={{ color: "#667085" }}>Fee</span>
+                  <strong>{formatMoney(transferFee)}</strong>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", paddingTop: 9, borderTop: "1px solid #e5e7eb" }}>
+                  <span style={{ fontWeight: 700 }}>Total deducted</span>
+                  <strong>{formatMoney(Number(amount || 0) + transferFee)}</strong>
+                </div>
+              </div>
 
               <div className={styles.inputGroup}>
                 <label>TRANSACTION PIN</label>

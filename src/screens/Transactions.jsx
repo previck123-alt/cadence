@@ -1016,24 +1016,14 @@ const Transactions = () => {
 
 
                                                 </h4>
-
-
-
-
-
+                                                <small>
+                                                    Fee:{" "}
+                                                    {formatMoney(item.fee)}
+                                                </small>
 
                                                 <small>
-
-
                                                     Bal:{" "}
-
-                                                    {
-                                                        formatMoney(
-                                                            item.Balance
-                                                        )
-                                                    }
-
-
+                                                    {formatMoney(item.Balance ?? item.balance)}
                                                 </small>
 
 

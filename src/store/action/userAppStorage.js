@@ -1036,24 +1036,15 @@ export const transferFunds = (data) => {
         },
         body: JSON.stringify(data)
       })
-      if (response.status === 404) {
-        let data = await response.json()
+      if (!response.ok) {
+        let errorData = await response.json().catch(() => ({}));
+
         return {
           bool: false,
-          message: data.response,
+          message: errorData.response || `Transfer failed (${response.status}).`,
           url: ''
-        }
+        };
       }
-
-      if (response.status === 300) {
-        let data = await response.json()
-        return {
-          bool: false,
-          message: data.response,
-          url: ''
-        }
-      }
-
 
       if (response.status === 200) {
         let data = await response.json()
