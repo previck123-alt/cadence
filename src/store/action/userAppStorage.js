@@ -1037,11 +1037,12 @@ export const transferFunds = (data) => {
         body: JSON.stringify(data)
       })
       if (!response.ok) {
-        let errorData = await response.json().catch(() => ({}));
-
+        const data = await response.json().catch(() => ({}));
         return {
           bool: false,
-          message: errorData.response || `Transfer failed (${response.status}).`,
+          message: data.response || data.message || `Transfer failed (${response.status}).`,
+          transferFee: data.transferFee,
+          totalDebit: data.totalDebit,
           url: ''
         };
       }

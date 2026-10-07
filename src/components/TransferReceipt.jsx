@@ -56,8 +56,7 @@ const TransferReceipt = ({ transfer, onClose }) => {
           <Row label="Account Number" value={maskAccount(transfer.accountNumber)} />
           <Row label="Description" value={transfer.reason || "—"} />
           <Row label="Transaction Date" value={date} />
-          <Row label="Transaction Fee" value={`$ ${money(transfer.fee ?? transfer.transferFee ?? 0)}`} />
-          <Row label="Total Debited" value={`$ ${money(transfer.totalDebit ?? (Number(transfer.amount || 0) + Number(transfer.fee || 0)))}`} />
+          <Row label="Transaction Fee" value="$ 0.00" />
           <Row
             label="Current Account Balance"
             value={`$ ${money(currentBalance)}`}
